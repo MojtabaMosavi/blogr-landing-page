@@ -1,0 +1,65 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  background: transparent;
+  border: none;
+}
+
+/* focus property removed on hover state but showed when element is tabed */
+/* using offset property the outline is positioned away from the element
+    the  second and third rule only apply when :focus-visible is supported
+    source = https://moderncss.dev/modern-css-upgrades-to-improve-accessibility/*/
+
+a {
+  text-decoration: none;
+
+  &:focus {
+    outline: max(1, 0.1em) dashed #000;
+    outline-offset: -0.25em;
+  }
+  /* remove the focus when tabed*/
+  &:focus:not(focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: max(1, 0.1em) dashed #000;
+    outline-offset: -0.25rem;
+  }
+}
+
+button {
+  &:focus {
+    outline: max(1, 0.1em) dashed #000;
+    outline-offset: -0.25em;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: max(1, 0.1em) dashed #000;
+    outline-offset: -0.25em;
+  }
+}

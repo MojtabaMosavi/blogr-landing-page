@@ -1,0 +1,33 @@
+@use "../abstacts" as abs;
+
+/* || btn */
+
+.btn {
+  color: abs.$white;
+  flex: 1;
+  cursor: pointer;
+  min-height: 3rem;
+  border: 1px solid white;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  max-width: 8.55rem;
+  @include abs.flex-container($js-con: center);
+
+  &:hover {
+    background-color: abs.$white;
+    color: abs.$CTA-text;
+  }
+
+  /* hover state for modified button*/
+  &--white {
+    background-color: abs.$white;
+    color: abs.$CTA-text;
+
+    &:hover {
+      color: abs.$white;
+      background-color: abs.$CTA-hover-background;
+      border: none;
+    }
+  }
+}

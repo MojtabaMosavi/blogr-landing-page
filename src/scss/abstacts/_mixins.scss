@@ -1,0 +1,17 @@
+@use "./variables" as v;
+
+/*|| media queries*/
+@mixin respond-to($breakpoint) {
+  @media only screen and (min-width: map-get($map: v.$breakpoints, $key:$breakpoint )) {
+    @content;
+  }
+}
+
+/*|| flex container */
+
+@mixin flex-container($al-con: center, $js-con: space-between, $flex-d: row) {
+  display: flex;
+  align-items: $al-con;
+  justify-content: $js-con;
+  flex-direction: $flex-d;
+}

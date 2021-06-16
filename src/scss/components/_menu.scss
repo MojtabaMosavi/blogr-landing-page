@@ -1,0 +1,38 @@
+@use "../abstacts" as abs;
+
+/*|| Hamburger menu*/
+
+.hamburger-menu {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+
+  &__bar {
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: abs.$white;
+    margin-bottom: 0.4rem;
+    transition: all 300ms ease-in-out;
+  }
+
+  /* || adding the modifiers to active state of menu*/
+  &--active {
+    @extend .hamburger-menu;
+
+    & > * {
+      margin-bottom: 0;
+    }
+
+    .hamburger-menu__bar--top {
+      transform: rotate(45deg) translateY(-1px);
+    }
+    .hamburger-menu__bar--middle {
+      opacity: 0;
+    }
+    .hamburger-menu__bar--bottom {
+      transform: rotate(-45deg) translate(3px, -2px);
+    }
+  }
+}

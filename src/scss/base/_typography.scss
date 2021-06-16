@@ -1,0 +1,15 @@
+@use "../abstacts/" as abs;
+
+body {
+  font-family: abs.$font-primary;
+  font-size: abs.$global-font-size;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: abs.$font-seconday;
+}

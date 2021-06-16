@@ -1,0 +1,196 @@
+/* || colors */
+/* Neutral */
+/* Neutral*/
+/* Background gradient - Intro/CTA mobile nav:*/
+/* Background gradient - body:*/
+/* || breakpoints for different screensizes*/
+/* || fonts*/
+/* Overpass, weights --> 300 600
+Ubuntu, weight --> 400 500 700 */
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap");
+/*|| media queries*/
+/*|| flex container */
+/* container*/
+.container {
+  padding: 0 1.5rem;
+}
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  background: transparent;
+  border: none;
+}
+
+/* focus property removed on hover state but showed when element is tabed */
+/* using offset property the outline is positioned away from the element
+    the  second and third rule only apply when :focus-visible is supported
+    source = https://moderncss.dev/modern-css-upgrades-to-improve-accessibility/*/
+a {
+  text-decoration: none;
+  /* remove the focus when tabed*/
+}
+a:focus {
+  outline: max(1, 0.1em) dashed #000;
+  outline-offset: -0.25em;
+}
+a:focus:not(focus-visible) {
+  outline: none;
+}
+a:focus-visible {
+  outline: max(1, 0.1em) dashed #000;
+  outline-offset: -0.25rem;
+}
+
+button:focus {
+  outline: max(1, 0.1em) dashed #000;
+  outline-offset: -0.25em;
+}
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+button:focus-visible {
+  outline: max(1, 0.1em) dashed #000;
+  outline-offset: -0.25em;
+}
+
+body {
+  font-family: "Overpass", sans-serif;
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Ubuntu", sans-serif;
+}
+
+/* || btn */
+.btn {
+  color: white;
+  flex: 1;
+  cursor: pointer;
+  min-height: 3rem;
+  border: 1px solid white;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  max-width: 8.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  /* hover state for modified button*/
+}
+.btn:hover {
+  background-color: white;
+  color: #ff525d;
+}
+.btn--white {
+  background-color: white;
+  color: #ff525d;
+}
+.btn--white:hover {
+  color: white;
+  background-color: #ff7a85;
+  border: none;
+}
+
+/*|| Hamburger menu*/
+.hamburger-menu, .hamburger-menu--active {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  /* || adding the modifiers to active state of menu*/
+}
+.hamburger-menu__bar {
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  margin-bottom: 0.4rem;
+  transition: all 300ms ease-in-out;
+}
+.hamburger-menu--active > * {
+  margin-bottom: 0;
+}
+.hamburger-menu--active .hamburger-menu__bar--top {
+  transform: rotate(45deg) translateY(-1px);
+}
+.hamburger-menu--active .hamburger-menu__bar--middle {
+  opacity: 0;
+}
+.hamburger-menu--active .hamburger-menu__bar--bottom {
+  transform: rotate(-45deg) translate(3px, -2px);
+}
+
+/* || Header */
+.header {
+  background: linear-gradient(to bottom, #ff8f70, #ff3d54);
+  padding-top: 3.5rem;
+  border-bottom-left-radius: 6.3rem;
+}
+.header__logo > img {
+  max-width: 81%;
+}
+.header__nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 6.5rem;
+}
+.header__hero {
+  color: white;
+  text-align: center;
+  max-width: 19rem;
+  margin: 0 auto;
+  padding-bottom: 9.75rem;
+}
+.header__heading {
+  font-size: 2.1rem;
+  line-height: 2.8rem;
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+.header__text {
+  font-size: 1.1rem;
+  margin-bottom: 2.9rem;
+}
+.header__btn-wrapper {
+  max-width: 18rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.header__btn {
+  transition: all 300ms ease-in-out;
+}
+
+/*# sourceMappingURL=main.css.map */
