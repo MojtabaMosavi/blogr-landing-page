@@ -9,6 +9,10 @@
   );
   padding-top: 3.5rem;
   border-bottom-left-radius: 6.3rem;
+  &__content-wrapper {
+    position: relative;
+  }
+
   &__logo {
     & > img {
       max-width: 81%;
@@ -19,6 +23,86 @@
     @include abs.flex-container();
     margin-bottom: 6.5rem;
   }
+
+  &__nav {
+    @include abs.flex-container($js-con: flex-start, $flex-d: column);
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 4.4rem;
+    height: 94%;
+    border-radius: 0.3rem;
+    background-color: abs.$white;
+    padding: 2.2rem 1.5rem;
+    box-shadow: 0px 50px 50px black;
+  }
+
+  &__links-wrapper {
+    margin-bottom: 1.4rem;
+    width: 100%;
+    @include abs.flex-container($js-con: center, $flex-d: column);
+  }
+
+  /*dropdown styles */
+  &__dropdown {
+    cursor: pointer;
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 0.6rem;
+    }
+    &-title {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      letter-spacing: 0.04rem;
+      color: abs.$headings;
+      font-weight: 700;
+
+      /* the arrow */
+      &::after {
+        content: url("../assets/images/icon-arrow-dark.svg");
+        margin-left: 0.5rem;
+      }
+    }
+
+    &-menu {
+      padding: 1.6rem 0 0.07rem 0;
+      border-radius: 0.5rem;
+      background-color: abs.$dropdown-bg;
+      font-weight: 700;
+      & > li {
+        margin-bottom: 1.3rem;
+      }
+    }
+
+    &-link {
+      color: abs.$body-copy;
+    }
+  }
+
+  /*|| divider*/
+  &__divider {
+    width: 97%;
+    color: abs.$dropdown-bg;
+    margin-bottom: 1rem;
+  }
+
+  /*|| btn-wrapper*/
+  &__btn-wrapper {
+    width: 100%;
+    padding: 0.5rem;
+
+    & > :nth-child(1),
+    & > :nth-child(2) {
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    & > :not(:first-child) {
+      margin-top: 0.3rem;
+    }
+  }
+
+  /*|| hero styles */
 
   &__hero {
     color: abs.$white;
@@ -33,6 +117,7 @@
     line-height: 2.8rem;
     font-weight: 300;
     margin-bottom: 1.2rem;
+    color: abs.$white;
   }
 
   &__text {
@@ -40,7 +125,7 @@
     margin-bottom: 2.9rem;
   }
 
-  &__btn-wrapper {
+  &__cta-wrapper {
     max-width: 18rem;
     margin: 0 auto;
     @include abs.flex-container();

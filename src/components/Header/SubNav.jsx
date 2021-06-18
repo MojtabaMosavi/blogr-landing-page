@@ -12,9 +12,9 @@ const SubNav = (props) => {
                 </button>
 
                 <ul className="header__dropdown-menu" id="subnav1">
-                    <li> {props.items.map( 
-                        item => <li><a href="#" className="header__link" key={item}>{item}</a></li>)}
-                    </li>
+                    {props.items.map( 
+                        item => <li><a href="/" className="header__dropdown-link" key={item}>{item}</a></li>)}
+    
                 </ul>
             </li>
     );

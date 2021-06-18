@@ -13,14 +13,13 @@
   font-weight: 700;
   max-width: 8.55rem;
   @include abs.flex-container($js-con: center);
-
   &:hover {
     background-color: abs.$white;
     color: abs.$CTA-text;
   }
 
-  /* hover state for modified button*/
-  &--white {
+  /*|| hover state for modified button*/
+  &--white-bg {
     background-color: abs.$white;
     color: abs.$CTA-text;
 
@@ -29,5 +28,27 @@
       background-color: abs.$CTA-hover-background;
       border: none;
     }
+  }
+
+  /*|| btn with gradient background */
+
+  &--gradient-bg {
+    font-size: 1rem;
+    background: linear-gradient(
+      to right,
+      abs.$Intro-CTA-mobile-nav-from,
+      abs.$Intro-CTA-mobile-nav-to
+    );
+
+    &:hover {
+      color: abs.$white;
+      background: abs.$CTA-hover-background;
+      border: none;
+    }
+  }
+
+  /*|| btn black text*/
+  &--black-text {
+    color: abs.$headings;
   }
 }

@@ -10,15 +10,19 @@ import Hero from "./Hero";
 const Header = () => {
     const [toggle,setToggle] = useState(false)
     return (  
+
         <header className="header container">
-            <div className="header__nav-wrapper">
-            <Logo />
-            <HamburgerNav 
-                toggled={toggle} 
-                handleClick = { () => setToggle(toggle => !toggle)}/>
+            <div className="header__content-wrapper">
+                <div className="header__nav-wrapper">
+                <Logo />
+                <HamburgerNav 
+                    toggled={toggle} 
+                    handleClick = { () => setToggle(toggle => !toggle)}/>
+                </div>
+                < Nav/>
+                <Hero/>
             </div>
-            < Nav/>
-            <Hero/>
+
         </header>
     );
 }
