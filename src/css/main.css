@@ -40,6 +40,7 @@ ul {
 button {
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 /* focus property removed on hover state but showed when element is tabed */
@@ -100,6 +101,7 @@ h6 {
   font-size: 1rem;
   font-weight: 700;
   max-width: 8.55rem;
+  transition: all 400ms cubic-bezier(0, 0.91, 0.8, 0.14);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,7 +132,7 @@ h6 {
   background: #ff7a85;
   border: none;
 }
-.btn--black-text {
+.btn--blue-text {
   color: #1f3f5b;
 }
 
@@ -148,19 +150,28 @@ h6 {
   height: 2px;
   background-color: white;
   margin-bottom: 0.4rem;
-  transition: all 300ms ease-in-out;
+  transition: all 400ms cubic-bezier(0, 0.91, 0.8, 0.14);
+}
+.hamburger-menu__bar:nth-child(1) {
+  width: 50%;
+}
+.hamburger-menu__bar:nth-child(2) {
+  width: 100%;
+}
+.hamburger-menu__bar:nth-child(3) {
+  width: 75%;
 }
 .hamburger-menu--active > * {
   margin-bottom: 0;
 }
 .hamburger-menu--active .hamburger-menu__bar--top {
-  transform: rotate(45deg) translateY(-1px);
+  transform: rotate(45deg) translate(-1px, -8px);
 }
 .hamburger-menu--active .hamburger-menu__bar--middle {
-  opacity: 0;
+  transform: rotate(-45deg) translate(3px, 0px);
 }
 .hamburger-menu--active .hamburger-menu__bar--bottom {
-  transform: rotate(-45deg) translate(3px, -2px);
+  transform: rotate(45deg) translate(5px, -8px);
 }
 
 /* divider*/
@@ -191,7 +202,7 @@ h6 {
   flex-direction: row;
   margin-bottom: 6.5rem;
 }
-.header__nav {
+.header__nav, .header__nav--active {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -200,38 +211,55 @@ h6 {
   position: absolute;
   width: 100%;
   top: 4.4rem;
-  height: 94%;
-  border-radius: 0.3rem;
+  border-radius: 10.3rem;
   background-color: white;
-  padding: 2.2rem 1.5rem;
-  box-shadow: 0px 50px 50px black;
+  padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+  box-shadow: 0px 28px 69px black;
+  transition: all 400ms cubic-bezier(0, 0.91, 0.8, 0.14);
+  transform-origin: center;
+  transform: scale(0);
+  visibility: hidden;
+  /* active state of the nav*/
+}
+.header__nav--active {
+  transform: scale(1);
+  visibility: visible;
+  border-radius: 0.3rem;
 }
 .header__links-wrapper {
   margin-bottom: 1.4rem;
+  transition: all 400ms cubic-bezier(0, 0.91, 0.8, 0.14);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.header__dropdown {
+.header__dropdown, .header__dropdown--active {
   cursor: pointer;
   width: 100%;
+  /* active state for dropdown*/
 }
-.header__dropdown:not(:last-child) {
+.header__dropdown:not(:last-child), .header__dropdown--active:not(:last-child) {
   margin-bottom: 0.6rem;
 }
-.header__dropdown-title {
+.header__dropdown-title, .header__dropdown-title--active {
   margin-bottom: 1.5rem;
   font-size: 1rem;
   letter-spacing: 0.04rem;
   color: #1f3f5b;
   font-weight: 700;
   /* the arrow */
+  /*active state which rotates the arrow 180deg*/
 }
-.header__dropdown-title::after {
+.header__dropdown-title::after, .header__dropdown-title--active::after {
   content: url("../assets/images/icon-arrow-dark.svg");
+  display: inline-block;
+  transition: all 400ms cubic-bezier(0, 0.91, 0.8, 0.14);
   margin-left: 0.5rem;
+}
+.header__dropdown-title--active::after {
+  transform: rotate(180deg);
 }
 .header__dropdown-menu {
   padding: 1.6rem 0 0.07rem 0;
@@ -243,7 +271,13 @@ h6 {
   margin-bottom: 1.3rem;
 }
 .header__dropdown-link {
+  display: inline-block;
   color: #4b5862;
+}
+.header__dropdown-link:hover {
+  transition: all 400ms cubic-bezier(0, 0.91, 0.8, 0.14);
+  transform: scale(1.2);
+  text-decoration: underline;
 }
 .header__divider {
   width: 97%;

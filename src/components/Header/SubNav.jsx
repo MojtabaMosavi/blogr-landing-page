@@ -1,17 +1,25 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 const SubNav = (props) => {
+    const [toggled,setToggle] = useState(false);
     return (
-            <li className="header__dropdown">
+            <li className={`header__dropdown${toggled ? '--active' : ''}`}>
                 <button 
                 type="button" 
-                className="header__dropdown-title"
+                className={`header__dropdown-title${toggled ? '--active' : ''}`}
                 aria-controls="subnav1"
-                aria-expanded="true">   
+                aria-expanded="false"
+                onClick={() => setToggle(toggled => !toggled)}
+                >   
+
                 {props.title}
+                
                 </button>
 
-                <ul className="header__dropdown-menu" id="subnav1">
+                <ul 
+                className="header__dropdown-menu" 
+                id="subnav1" 
+                style={toggled ? {display:"block"} : {display:"none"}}>
                     {props.items.map( 
                         item => <li><a href="/" className="header__dropdown-link" key={item}>{item}</a></li>)}
     

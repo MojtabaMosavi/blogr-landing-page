@@ -8,7 +8,7 @@ import Hero from "./Hero";
 
 
 const Header = () => {
-    const [toggle,setToggle] = useState(false)
+    const [toggled,setToggle] = useState(false)
     return (  
 
         <header className="header container">
@@ -16,10 +16,10 @@ const Header = () => {
                 <div className="header__nav-wrapper">
                 <Logo />
                 <HamburgerNav 
-                    toggled={toggle} 
-                    handleClick = { () => setToggle(toggle => !toggle)}/>
+                    toggled={toggled} 
+                    handleClick = { () => setToggle(toggled => !toggled)}/>
                 </div>
-                < Nav/>
+                < Nav toggled={toggled}/>
                 <Hero/>
             </div>
 

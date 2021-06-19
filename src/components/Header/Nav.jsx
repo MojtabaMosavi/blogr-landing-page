@@ -3,7 +3,7 @@ import SubNav from "./SubNav";
 
 const Nav = (props) => {
     return (
-        <nav className="header__nav" aria-label="navigation">
+        <nav className={ `header__nav${props.toggled ? '--active' : ''}` }aria-label="navigation">
             <ul className="header__links-wrapper">
                     <SubNav title={"Product"} 
                             items={["Overview","Pricing","Marketplace","Features","Integrations"]}/>
@@ -16,8 +16,8 @@ const Nav = (props) => {
             </ul>
             <hr className="header__divider divider" />
             <div className="header__btn-wrapper">
-                <a href="/" className="header__btn btn">Login</a>
-                <a href="/" className="header__btn btn">  Sign Up</a>
+                <a href="/" className="header__btn btn btn--blue-text">Login</a>
+                <a href="/" className="header__btn btn btn--gradient-bg">  Sign Up</a>
             </div>
         </nav>
     );
