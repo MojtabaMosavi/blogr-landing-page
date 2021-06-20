@@ -4,6 +4,7 @@ const HamburgerNav = (props) => {
     return (  
         <button className={`header__hamburger-menu hamburger-menu${props.toggled ? '--active': '' }`}
                 aria-label="menu" 
+                title="navigation"
                 type="button" 
                 aria-controls="navigation"
                 onClick = {props.handleClick}

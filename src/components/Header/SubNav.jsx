@@ -22,7 +22,7 @@ const SubNav = (props) => {
                 id="subnav1" 
                 style={toggled ? {display:"block"} : {display:"none"}}>
                     {props.items.map( 
-                        item => <li><a href="/" className="header__dropdown-link" key={item}>{item}</a></li>)}
+                        item => <li key={item}><a href="/" className="header__dropdown-link" >{item}</a></li>)}
     
                 </ul>
             </li>

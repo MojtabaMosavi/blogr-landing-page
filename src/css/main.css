@@ -22,6 +22,7 @@ Ubuntu, weight --> 400 500 700 */
 }
 @media only screen and (min-width: 82em) {
   .container {
+    padding: 0;
     max-width: 69.625rem;
   }
 }
@@ -354,7 +355,6 @@ h6 {
   }
   .header__nav, .header__nav--active {
     all: unset;
-    border: 2px solid;
     flex: 1;
     display: flex;
     align-items: center;
@@ -397,12 +397,11 @@ h6 {
     text-align: center;
     width: 10.5rem;
     left: 50%;
-    top: 2rem;
+    top: 3rem;
     transform: translateX(-50%);
   }
   .header__btn-wrapper {
     padding: 0;
-    border: 2px solid;
     max-width: 18rem;
   }
   .header__btn-wrapper > :nth-child(1) {
@@ -438,11 +437,48 @@ h6 {
   }
 }
 @media only screen and (min-width: 62em) {
+  .header {
+    padding-top: 3.7rem;
+  }
+  .header__logo {
+    margin-right: 4rem;
+  }
+  .header__logo > img {
+    max-width: 100%;
+  }
+  .header__nav-wrapper {
+    margin-bottom: 8.5rem;
+  }
   .header__links-wrapper {
-    max-width: 19.25rem;
+    max-width: 21rem;
+  }
+  .header__links-wrapper > li {
+    margin: 0;
   }
   .header__dropdown > .header__dropdown, .header__dropdown--active > .header__dropdown, .header__dropdown > .header__dropdown--active, .header__dropdown--active > .header__dropdown--active {
-    margin-left: 2rem;
+    margin-right: 1rem;
+  }
+  .header__dropdown-title, .header__dropdown-title--active {
+    letter-spacing: initial;
+    margin-top: 0.6rem;
+  }
+  .header__btn-wrapper {
+    max-width: 16rem;
+  }
+  .header__btn-wrapper > :first-child {
+    margin-right: 0;
+  }
+  .header__hero {
+    max-width: unset;
+    padding-bottom: 9.7rem;
+  }
+  .header__heading {
+    font-size: 3.7rem;
+    margin-bottom: 2.5rem;
+  }
+  .header__text {
+    font-size: 1.25rem;
+    margin-bottom: 2.8rem;
   }
 }
 

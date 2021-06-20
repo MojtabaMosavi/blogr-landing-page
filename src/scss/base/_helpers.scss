@@ -9,6 +9,7 @@
   }
 
   @include abs.respond-to("desktop") {
+    padding: 0;
     max-width: 69.625rem;
   }
 }
