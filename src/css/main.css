@@ -203,7 +203,9 @@ h6 {
 
 /* || Header */
 .header {
-  background: linear-gradient(to bottom, #ff8f70, #ff3d54);
+  background: url(/static/media/bg-pattern-intro.62fb91e3.svg) no-repeat center top, linear-gradient(to bottom, #ff8f70, #ff3d54);
+  background-size: 315vw;
+  background-position: 34% 30%;
   padding-top: 3.5rem;
   border-bottom-left-radius: 6.3rem;
   /*dropdown styles */
@@ -350,6 +352,9 @@ h6 {
   transition: all 300ms ease-in-out;
 }
 @media only screen and (min-width: 43em) {
+  .header {
+    background-size: 202vw;
+  }
   .header__hamburger-menu {
     display: none;
   }
@@ -438,6 +443,8 @@ h6 {
 }
 @media only screen and (min-width: 62em) {
   .header {
+    background-size: 219vw;
+    background-position: 25% 52%;
     padding-top: 3.7rem;
   }
   .header__logo {

@@ -2,11 +2,11 @@
 
 /* || Header */
 .header {
-  background: linear-gradient(
-    to bottom,
-    abs.$Intro-CTA-mobile-nav-from,
-    abs.$Intro-CTA-mobile-nav-to
-  );
+  background: url(/static/media/bg-pattern-intro.62fb91e3.svg) no-repeat center
+      top,
+    linear-gradient(to bottom, #ff8f70, #ff3d54);
+  background-size: 315vw;
+  background-position: 34% 30%;
   padding-top: 3.5rem;
   border-bottom-left-radius: 6.3rem;
   &__content-wrapper {
@@ -178,6 +178,7 @@
   /*|| tablet view, main change hamburger menu changes to a navigation bar*/
 
   @include abs.respond-to("tablet") {
+    background-size: 202vw;
     &__nav-wrapper {
     }
 
@@ -286,6 +287,8 @@
   /*|| laptop view, small changes to the main navigation*/
 
   @include abs.respond-to("laptop") {
+    background-size: 219vw;
+    background-position: 25% 52%;
     padding-top: 3.7rem;
     &__logo {
       margin-right: 4rem;
