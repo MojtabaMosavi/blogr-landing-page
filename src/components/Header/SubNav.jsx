@@ -8,7 +8,8 @@ const SubNav = (props) => {
                 type="button" 
                 className={`header__dropdown-title${toggled ? '--active' : ''}`}
                 aria-controls="subnav1"
-                aria-expanded="false"
+                // to communicate state of subnav to screen readers
+                aria-expanded={`${toggled ? 'true':'false'}`}
                 onClick={() => setToggle(toggled => !toggled)}
                 >   
 

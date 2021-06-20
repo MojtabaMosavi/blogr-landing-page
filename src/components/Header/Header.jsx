@@ -11,15 +11,16 @@ const Header = () => {
     const [toggled,setToggle] = useState(false)
     return (  
 
-        <header className="header container">
-            <div className="header__content-wrapper">
+        <header className="header ">
+            <div className="header__content-wrapper container">
                 <div className="header__nav-wrapper">
                 <Logo />
                 <HamburgerNav 
                     toggled={toggled} 
                     handleClick = { () => setToggle(toggled => !toggled)}/>
-                </div>
+                
                 < Nav toggled={toggled}/>
+                </div>
                 <Hero/>
             </div>
 

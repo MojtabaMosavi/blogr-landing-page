@@ -2,4 +2,24 @@
 /* container*/
 .container {
   padding: 0 1.5rem;
+  margin: 0 auto;
+
+  @include abs.respond-to("laptop") {
+    max-width: 60rem;
+  }
+
+  @include abs.respond-to("desktop") {
+    max-width: 69.625rem;
+  }
+}
+
+/*|| Hidde the element from sighted user but display it to screen readers*/
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }

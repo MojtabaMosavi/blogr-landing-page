@@ -2,8 +2,7 @@ import React from 'react';
 
 const HamburgerNav = (props) => {
     return (  
-        <button className={`header__hamburger-menu hamburger-menu 
-                ${props.toggled ? 'hamburger-menu--active': '' }`}
+        <button className={`header__hamburger-menu hamburger-menu${props.toggled ? '--active': '' }`}
                 aria-label="menu" 
                 type="button" 
                 aria-controls="navigation"

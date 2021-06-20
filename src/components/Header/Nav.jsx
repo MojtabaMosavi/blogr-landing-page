@@ -3,6 +3,7 @@ import SubNav from "./SubNav";
 
 const Nav = (props) => {
     return (
+        // aria-label for assistive tech
         <nav className={ `header__nav${props.toggled ? '--active' : ''}` }aria-label="navigation">
             <ul className="header__links-wrapper">
                     <SubNav title={"Product"} 

@@ -22,6 +22,7 @@
   &__nav-wrapper {
     @include abs.flex-container();
     margin-bottom: 6.5rem;
+    position: relative;
   }
 
   &__nav {
@@ -60,6 +61,7 @@
   &__dropdown {
     cursor: pointer;
     width: 100%;
+
     &:not(:last-child) {
       margin-bottom: 0.6rem;
     }
@@ -171,5 +173,129 @@
 
   &__btn {
     transition: all 300ms ease-in-out;
+  }
+
+  /*|| tablet view, main change hamburger menu changes to a navigation bar*/
+
+  @include abs.respond-to("tablet") {
+    &__nav-wrapper {
+    }
+
+    &__hamburger-menu {
+      display: none;
+    }
+
+    &__nav {
+      all: unset;
+      border: 2px solid;
+      flex: 1;
+      @include abs.flex-container();
+    }
+
+    &__links-wrapper {
+      flex-direction: row;
+
+      margin-bottom: 0;
+    }
+
+    &__btn-wrapper {
+      @include abs.flex-container();
+    }
+
+    &__divider {
+      display: none;
+    }
+
+    &__dropdown {
+      position: relative;
+      margin-right: 2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+
+      &-title {
+        margin-bottom: 0;
+        color: abs.$white;
+        min-width: 6rem;
+
+        &::after {
+          content: url("../assets/images/icon-arrow-light.svg");
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &-menu {
+        position: absolute;
+        text-align: center;
+        width: 10.5rem;
+        left: 50%;
+        top: 2rem;
+        transform: translateX(-50%);
+      }
+    }
+
+    &__btn-wrapper {
+      padding: 0;
+      border: 2px solid;
+      max-width: 18rem;
+
+      & > :nth-child(1) {
+        margin-right: 0.5rem;
+        color: abs.$white;
+
+        &:hover {
+          background-color: inherit;
+        }
+      }
+
+      & > :nth-child(2) {
+        background: abs.$white;
+        color: abs.$CTA-text;
+        &:hover {
+          background: abs.$CTA-hover-background;
+          color: abs.$white;
+        }
+      }
+
+      & > :not(:first-child) {
+        margin-top: 0;
+      }
+
+      & > :nth-child(1),
+      & > :nth-child(2) {
+        font-size: 1rem;
+        border: none;
+      }
+
+      &__btn {
+        font-size: 1rem;
+      }
+    }
+
+    &__hero {
+      max-width: 25rem;
+    }
+
+    &__heading {
+      font-size: 2.5rem;
+    }
+  }
+
+  /*|| laptop view, small changes to the main navigation*/
+
+  @include abs.respond-to("laptop") {
+    &__links-wrapper {
+      max-width: 19.25rem;
+    }
+
+    &__dropdown {
+      & > & {
+        margin-left: 2rem;
+      }
+    }
   }
 }
