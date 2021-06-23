@@ -10,7 +10,7 @@ const SubNav = (props) => {
                     item => <li key={item}> <a href="/" className="footer__subnav-link" >{item}</a></li>
                 )}
             </ul>
-
+                    
         </li>
     );
 }
