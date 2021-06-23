@@ -1,0 +1,109 @@
+@use "../abstacts" as abs;
+
+/* art */
+.art {
+  margin-bottom: 4rem;
+  text-align: center;
+  border-top-right-radius: 6rem;
+  padding-bottom: 7.86rem;
+  border-bottom-left-radius: 6rem;
+  background: url("../assets/images/bg-pattern-circles.svg") no-repeat,
+    linear-gradient(abs.$bg-body-from, abs.$bg-to);
+  background-size: 155%;
+  background-position: 50% -676%;
+
+  &__image-wrapper {
+    position: relative;
+    bottom: 12rem;
+    margin-bottom: -12rem;
+  }
+
+  &__image {
+    width: 117%;
+    position: relative;
+    right: 1.5rem;
+    max-width: 30rem;
+  }
+
+  &__content-wrapper {
+    text-align: center;
+    line-height: 1.7rem;
+    color: abs.$white;
+  }
+
+  &__heading {
+    font-size: 2.2rem;
+    line-height: 3rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: abs.$white;
+  }
+
+  &__text {
+    max-width: 19rem;
+    margin: 0 auto;
+  }
+
+  /* tablet view*/
+
+  @include abs.respond-to("tablet") {
+    padding-bottom: 3rem;
+    background-size: 81%;
+    background-position: -92% 83%;
+
+    &__c-wrapper {
+      padding-top: 2rem;
+      display: grid;
+      grid-template: 1fr / 1fr 1fr;
+      gap: 0 2rem;
+    }
+
+    &__image-wrapper {
+      position: relative;
+      bottom: 0;
+    }
+  }
+
+  /* laptop */
+  @include abs.respond-to("laptop") {
+    padding-bottom: 0;
+
+    &__c-wrapper {
+      gap: 2rem;
+      padding-top: 0;
+    }
+
+    &__image-wrapper {
+      bottom: 5rem;
+    }
+
+    &__image {
+      max-width: 35rem;
+      right: 2.5rem;
+    }
+
+    &__content-wrapper {
+      text-align: left;
+      margin-top: 3rem;
+    }
+
+    &__heading {
+      margin-bottom: 2rem;
+      font-size: 2.4rem;
+    }
+
+    &__text {
+      max-width: unset;
+      color: abs.$footer-text;
+    }
+  }
+
+  /* dektop view*/
+  @include abs.respond-to("desktop") {
+    background-size: 73%;
+    background-position: -64% 83%;
+    &__content-wrapper {
+      margin-top: 7rem;
+    }
+  }
+}

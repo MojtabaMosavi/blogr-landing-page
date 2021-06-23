@@ -1,0 +1,174 @@
+@use "../abstacts" as abs;
+
+/*|| feature */
+.feature {
+  text-align: center;
+  margin-bottom: 17.5rem;
+
+  &--position {
+    margin-bottom: 8.2rem;
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    right: 2.45rem;
+    display: inline-block;
+    margin-bottom: 2.5rem;
+
+    &--position {
+      right: 5.45rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__image {
+    max-width: 40rem;
+    object-fit: cover;
+    width: 124.5%;
+    height: auto;
+
+    &--size {
+      width: 154.5%;
+    }
+  }
+
+  &__card {
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+
+  &__heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+    margin-left: 0.6rem;
+  }
+
+  &__text {
+    line-height: 1.7rem;
+    font-family: abs.$font-secondary;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    color: abs.$body-copy;
+  }
+
+  @include abs.respond-to("tablet") {
+    margin-bottom: 2rem;
+
+    &__content-wrapper {
+      display: grid;
+      grid-template:
+        [row1-start] "heading heading" auto [row1-end]
+        [row2-start] "text pic" 1fr[row2-end]
+        [row3-start] "text pic" 1fr[row3-end] / 1fr 1fr;
+
+      &--reverse {
+        display: grid;
+        grid-template:
+          [row1-start] "pic text" 1fr[row1-end]
+          [row2-start] "pic text" 1fr[row2-end] / 1fr 1fr;
+        gap: 0 2rem;
+      }
+    }
+
+    &__image-wrapper {
+      margin-bottom: 0;
+      align-self: center;
+    }
+
+    &__image {
+      &--size {
+        width: 160%;
+      }
+    }
+
+    &__title {
+      grid-area: heading;
+    }
+
+    &__heading {
+      grid-area: heading;
+    }
+
+    &__image-wrapper {
+      left: 10%;
+      grid-area: pic;
+
+      &--position {
+        right: 50%;
+        left: unset;
+        grid-area: pic;
+      }
+    }
+
+    &__content {
+      grid-area: text;
+      text-align: left;
+    }
+
+    &__card {
+      max-width: unset;
+    }
+  }
+
+  /*|| laptop view */
+  @include abs.respond-to("laptop") {
+    margin-bottom: 0;
+
+    &--position {
+      margin-top: 8rem;
+    }
+
+    &__title {
+      margin: 3rem 0;
+      font-size: 2.2rem;
+    }
+
+    &__image-wrapper {
+      grid-area: pic;
+      left: 4.4rem;
+      bottom: 10.5rem;
+
+      &--position {
+        left: unset;
+        bottom: unset;
+        right: 71%;
+      }
+    }
+
+    &__image {
+      max-width: unset;
+      width: 166.5%;
+
+      &--size {
+      }
+    }
+    &__content {
+      &--position {
+        margin-top: 7rem;
+      }
+    }
+
+    &__card {
+      margin-top: 4rem;
+
+      &:nth-child(2) {
+        margin-top: 5rem;
+      }
+    }
+
+    &__heading {
+      font-size: 1.7rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  @include abs.respond-to("desktop") {
+    margin-bottom: -7.6rem;
+  }
+}
