@@ -1,70 +1,145 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
 
-## Available Scripts
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
 
-In the project directory, you can run:
 
-### `npm start`
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Overview
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### The challenge
 
-### `npm test`
+Users should be able to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
 
-### `npm run build`
+### Screenshot
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](./desing/desktop-design.jpg)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
-### `npm run eject`
+### Links
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Live Site URL: [https://mojtabamosavi.github.io/blogr-landing-page/](https://your-live-site-url.com)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## My process
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Built with
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- Sass
+- BEM
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### What I learned
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1- I improved my knowledge of how to incorporate npm in project.
 
-### Code Splitting
+2- I learned how to host a create-react-app on github-pages and to build production version of the app for batter perfomance. To achieve this I used the npm module gh-pages which makes much more easier to deployment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3- Writing resuable components and useStata hook.  
+  Throughtout this project I focused on creating reusable components and the following component is a code illustration of it. The following components is the mobile navigation    of the site and the way it is implements allows you reuse it in any other part of the project or modifying the navigation links only through modifying the items list.
+```jsx 
+const Nav = (props) => {
+    return (
+        // aria-label for assistive tech
+        <nav className={ `header__nav${props.toggled ? '--active' : ''}` }aria-label="navigation">
+            <ul className="header__links-wrapper">
+            
+                    <SubNav title={"Product"} 
+                            items={["Overview","Pricing","Marketplace","Features","Integrations"]}/>
+                            
+                    <SubNav title={"Company"} 
+                            items={["About","Team","Blog","Cereer"]}/>
 
-### Analyzing the Bundle Size
+                    <SubNav title={"Connect"} 
+                            items={["Contact","Newsletter","LinkedIn"]}/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+            </ul>
+            <hr className="header__divider divider" />
+            <div className="header__btn-wrapper">
+                <a href="/" className="header__btn btn btn--blue-text">Login</a>
+                <a href="/" className="header__btn btn btn--gradient-bg">  Sign Up</a>
+            </div>
+        </nav>
+    );
+}
+```
+4- How to implement a semenantic and accessible dropdown menu 
+  
+  There a few thing to highlight:
+    1- The usage of aria-controls to create a causea and effect relationship which indicates that the button is controlling the behavior of the dropdown menu.
+    2. aria-expanded is used to indicate the state of the element.
 
-### Making a Progressive Web App
+```jsx
+const SubNav = (props) => {
+    const [toggled,setToggle] = useState(false);
+    return (
+            <li className={`header__dropdown${toggled ? '--active' : ''}`}>
+                <button 
+                type="button" 
+                className={`header__dropdown-title${toggled ? '--active' : ''}`}
+                aria-controls="subnav1"
+                // to communicate state of subnav to screen readers
+                aria-expanded={`${toggled ? 'true':'false'}`}
+                onClick={() => setToggle(toggled => !toggled)}
+                >   
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+                {props.title}
+                
+                </button>
 
-### Advanced Configuration
+                <ul 
+                className="header__dropdown-menu" 
+                id="subnav1" 
+                style={toggled ? {display:"block"} : {display:"none"}}>
+                    {props.items.map( 
+                        item => <li key={item}><a href="/" className="header__dropdown-link" >{item}</a></li>)}
+    
+                </ul>
+            </li>
+    );
+}
+}
+```
+5- How to structure a react project, in this project I used the 7-1 sass architecture. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+### Continued development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1- Gettting more familiar with npm
 
-### `npm run build` fails to minify
+2- Improving my understanding of BEM, for instance identifying situation where starting a context is not necessary.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3- Learning about some of more advanced operations of Git for example branching.
+
+4- Even though I used 7-1 sass architecture for this project which enables you to write modular code, there is room for improvment when is comes to the way structuring the styles and jsx because in a larger project the current structure can get quite messy.
+
+5- The way I comment code, at momment I used to write only short comments that fulfill their purpose but there is room for improvment.
+
+6- Doing this project I come to realize the cross-browser testing i really important aspect of a project and something that I need to get in habit of doing in every project.
+
+### Useful resources
+
+- [Example resource 1](https://tink.uk/using-the-aria-controls-attribute/) - A simple guide on the behavior of aria-controls.
+- [Example resource 2](https://create-react-app.dev/docs/deployment/#github-pages-https-pagesgithubcom) -From this I learned how to poblish a create-rect-app on github pages.
+
+
+
