@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [https://mojtabamosavi.github.io/blogr-landing-page/](https://your-live-site-url.com)
+- Live Site URL: [https://mojtabamosavi.github.io/blogr-landing-page](https://your-live-site-url.com)
 
 ## My process
 
